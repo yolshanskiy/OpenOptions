@@ -12,21 +12,29 @@ This package is useful for finance professionals, researchers, and students who 
 
 2. Install the "devtools" package by running the command:
 
+```{r}
   install.packages("devtools")
+```
 
 3. Load the devtools package by running the command:
 
+```{r}
   library(devtools)
+```
 
 4. Use the function install_github() to download and install the package from the GitHub repository. The syntax for this function is: 
 
+```{r}
   install_github("yolshanskiy/OpenOptions"). 
+```
 
 5. Wait for the package to be installed and check the package is installed by running the command installed.packages().
 
 6. Once it is installed, you can load the package by running the command
 
+```{r}
   library(OpenOptions).
+```
 
 7. You can now use the functions and data within the package for your analysis.
 
@@ -36,22 +44,31 @@ This package is useful for finance professionals, researchers, and students who 
 
 2. Install the R package "devtools" by running the command: 
 
+```
   R -e "install.packages('devtools')"
+```
 
 3. Use the command "git clone" to clone the GitHub repository to your local machine. The syntax for this command is:
 
+```
   git clone https://github.com/yolshanskiy/OpenOptions.git.
+```  
   
 Alternatively, download zip of repository by pressing green code button in the top-right corner.
 
 4. Navigate to the package directory by running the command:
 
+```
   cd path/to/mypackage
+```
 
 5. Install the package by running the command
 
+```
   R CMD INSTALL --build OpenOptions.
-
+```
 6. Once the package is installed, you can load it in R by running the command
-  R -e "library(OpenOptions)"
 
+```
+  R -e "library(OpenOptions)"
+```
