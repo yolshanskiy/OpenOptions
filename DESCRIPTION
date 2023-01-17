@@ -1,0 +1,13 @@
+Package: OpenOptions
+Title: R Package for calculating option prices and greeks
+Description: The "OpenOptions" R package is designed for fast evaluation of the greeks, implied volatility and prices of European and American options. The functions are implemented with C++. The current version of the package does it in line with the Black-Scholes-Merton model. The package offers a user-friendly interface that allows users to easily input the necessary parameters, such as the underlying asset price, strike price, time to expiration, risk-free interest rate, and volatility. The package then uses these inputs to calculate the option's delta, gamma, theta, vega, vanna, theta, epsilon, lambda, charm and rho, as well as the option's price. See Hull, J. C. (2003). Options futures and other derivatives. Pearson Education India.
+Version: 0.0.1
+Date: 2022-12-30
+Authors@R: 
+    person("Yury", "Olshanskiy", email = "ols@mit.edu", role = c("aut", "cre"))
+Depends: R (>= 4.0.0)
+License: GPL-2
+LinkingTo: Rcpp, RcppEigen 
+Depends: dplyr
+Suggests: testthat
+SystemRequirements: C++11

@@ -1,0 +1,27 @@
+useDynLib("OpenOptions", .registration=TRUE)
+
+export("BSMCall", "BSMPut",
+       "BSMIVCall", "BSMIVPut",
+       "BSMDeltaCall", "BSMDeltaPut",
+       "BSMThetaCall", "BSMThetaPut",
+       "BSMRhoCall", "BSMRhoPut",
+       "BSMThetaCall", "BSMThetaPut",
+       "BSMEpsilonCall", "BSMEpsilonPut",
+       "BSMLambdaCall", "BSMLambdaPut",
+       "BSMCharmCall", "BSMCharmPut",
+       "BSMGamma", "BSMVega", "BSMVanna")
+
+export("BSMGreeks")
+
+export("binomialStockPaths",
+       "binomialStatePrices",
+       "binomialOptionPricer",
+       "binomialOptionPricer_detailed",
+       "binomialOptionPricer_fast",
+       "binomialAmericanOptionPricer",
+       "binomialAmericanOptionPricer_detailed"
+       )
+
+importFrom("Rcpp", "evalCpp")
+
+
