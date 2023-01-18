@@ -44,8 +44,8 @@ BEGIN_RCPP
 END_RCPP
 }
 // BSMIVCall
-double BSMIVCall(double OptionPrice, double S, double K, double r, double time, double q, double precision);
-RcppExport SEXP _OpenOptions_BSMIVCall(SEXP OptionPriceSEXP, SEXP SSEXP, SEXP KSEXP, SEXP rSEXP, SEXP timeSEXP, SEXP qSEXP, SEXP precisionSEXP) {
+double BSMIVCall(double OptionPrice, double S, double K, double r, double time, double q, double precision, double vol_initial);
+RcppExport SEXP _OpenOptions_BSMIVCall(SEXP OptionPriceSEXP, SEXP SSEXP, SEXP KSEXP, SEXP rSEXP, SEXP timeSEXP, SEXP qSEXP, SEXP precisionSEXP, SEXP vol_initialSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -56,13 +56,14 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< double >::type time(timeSEXP);
     Rcpp::traits::input_parameter< double >::type q(qSEXP);
     Rcpp::traits::input_parameter< double >::type precision(precisionSEXP);
-    rcpp_result_gen = Rcpp::wrap(BSMIVCall(OptionPrice, S, K, r, time, q, precision));
+    Rcpp::traits::input_parameter< double >::type vol_initial(vol_initialSEXP);
+    rcpp_result_gen = Rcpp::wrap(BSMIVCall(OptionPrice, S, K, r, time, q, precision, vol_initial));
     return rcpp_result_gen;
 END_RCPP
 }
 // BSMIVPut
-double BSMIVPut(double OptionPrice, double S, double K, double r, double time, double q, double precision);
-RcppExport SEXP _OpenOptions_BSMIVPut(SEXP OptionPriceSEXP, SEXP SSEXP, SEXP KSEXP, SEXP rSEXP, SEXP timeSEXP, SEXP qSEXP, SEXP precisionSEXP) {
+double BSMIVPut(double OptionPrice, double S, double K, double r, double time, double q, double precision, double vol_initial);
+RcppExport SEXP _OpenOptions_BSMIVPut(SEXP OptionPriceSEXP, SEXP SSEXP, SEXP KSEXP, SEXP rSEXP, SEXP timeSEXP, SEXP qSEXP, SEXP precisionSEXP, SEXP vol_initialSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -73,7 +74,8 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< double >::type time(timeSEXP);
     Rcpp::traits::input_parameter< double >::type q(qSEXP);
     Rcpp::traits::input_parameter< double >::type precision(precisionSEXP);
-    rcpp_result_gen = Rcpp::wrap(BSMIVPut(OptionPrice, S, K, r, time, q, precision));
+    Rcpp::traits::input_parameter< double >::type vol_initial(vol_initialSEXP);
+    rcpp_result_gen = Rcpp::wrap(BSMIVPut(OptionPrice, S, K, r, time, q, precision, vol_initial));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -459,8 +461,8 @@ END_RCPP
 static const R_CallMethodDef CallEntries[] = {
     {"_OpenOptions_BSMCall", (DL_FUNC) &_OpenOptions_BSMCall, 6},
     {"_OpenOptions_BSMPut", (DL_FUNC) &_OpenOptions_BSMPut, 6},
-    {"_OpenOptions_BSMIVCall", (DL_FUNC) &_OpenOptions_BSMIVCall, 7},
-    {"_OpenOptions_BSMIVPut", (DL_FUNC) &_OpenOptions_BSMIVPut, 7},
+    {"_OpenOptions_BSMIVCall", (DL_FUNC) &_OpenOptions_BSMIVCall, 8},
+    {"_OpenOptions_BSMIVPut", (DL_FUNC) &_OpenOptions_BSMIVPut, 8},
     {"_OpenOptions_BSMDeltaCall", (DL_FUNC) &_OpenOptions_BSMDeltaCall, 6},
     {"_OpenOptions_BSMDeltaPut", (DL_FUNC) &_OpenOptions_BSMDeltaPut, 6},
     {"_OpenOptions_BSMEpsilonCall", (DL_FUNC) &_OpenOptions_BSMEpsilonCall, 6},

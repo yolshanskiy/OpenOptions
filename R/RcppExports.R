@@ -9,12 +9,12 @@ BSMPut <- function(S, K, r, vol, time, q = 0) {
     .Call(`_OpenOptions_BSMPut`, S, K, r, vol, time, q)
 }
 
-BSMIVCall <- function(OptionPrice, S, K, r, time, q = 0, precision = 1E-10) {
-    .Call(`_OpenOptions_BSMIVCall`, OptionPrice, S, K, r, time, q, precision)
+BSMIVCall <- function(OptionPrice, S, K, r, time, q = 0, precision = 1E-10, vol_initial = 0.2) {
+    .Call(`_OpenOptions_BSMIVCall`, OptionPrice, S, K, r, time, q, precision, vol_initial)
 }
 
-BSMIVPut <- function(OptionPrice, S, K, r, time, q = 0, precision = 1E-10) {
-    .Call(`_OpenOptions_BSMIVPut`, OptionPrice, S, K, r, time, q, precision)
+BSMIVPut <- function(OptionPrice, S, K, r, time, q = 0, precision = 1E-10, vol_initial = 0.2) {
+    .Call(`_OpenOptions_BSMIVPut`, OptionPrice, S, K, r, time, q, precision, vol_initial)
 }
 
 BSMDeltaCall <- function(S, K, r, vol, time, q = 0) {

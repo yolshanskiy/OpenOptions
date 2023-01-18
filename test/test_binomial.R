@@ -131,7 +131,7 @@ dt %>%
   melt(id = "N") %>%
   ggplot(aes(N, value, colour = variable)) +
   geom_point() +
-  geom_hline(yintercept = BSMCall(S,K,r,vol,time,q), size = 1, linetype = 10) +
+  geom_hline(yintercept = BSMCall(S,K,r,vol,time,q), linewidth = 1, linetype = 10) +
   theme_bw() + labs(x = "Number Periods", y = "Option Value", colour = "Type Dividend")
 
 #### American Options ######
