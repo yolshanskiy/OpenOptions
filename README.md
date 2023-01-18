@@ -67,6 +67,7 @@ Alternatively, download zip of repository by pressing green code button in the t
 ```
   R CMD INSTALL --build OpenOptions.
 ```
+
 6. Once the package is installed, you can load it in R by running the command
 
 ```
