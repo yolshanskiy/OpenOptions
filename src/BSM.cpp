@@ -23,8 +23,8 @@ double BSMPut(double S, double K, double r, double vol, double time, double q = 
 
 // Implied volatility call option function
 // [[Rcpp::export]]
-double BSMIVCall(double OptionPrice, double S, double K, double r, double time, double q = 0, double precision = 1E-10) {
-  double sig = 0.2;
+double BSMIVCall(double OptionPrice, double S, double K, double r, double time, double q = 0, double precision = 1E-10, double vol_initial = 0.2) {
+  double sig = vol_initial;
   double sig_old, ln, d1, d2, tmp_p;
   int iter = 0, MAXITER = 100000;
   do {
@@ -34,6 +34,7 @@ double BSMIVCall(double OptionPrice, double S, double K, double r, double time, 
     d2 = d1 - sig * sqrt(time);
     tmp_p = exp(-q * time) * S * R::pnorm(d1, 0.0, 1.0, true, false) - K * exp(-r * time) * R::pnorm(d2, 0.0, 1.0, true, false);
     sig = sig + (OptionPrice - tmp_p) / (S * (1 / (sqrt(2 * M_PI))) * exp(-0.5 * (d1 * d1)) * sqrt(time));
+    iter++;
   } while (fabs(sig - sig_old) > precision and iter < MAXITER);
 
   return sig;
@@ -41,8 +42,8 @@ double BSMIVCall(double OptionPrice, double S, double K, double r, double time, 
 
 // Implied volatility put option function
 // [[Rcpp::export]]
-double BSMIVPut(double OptionPrice, double S, double K, double r, double time, double q = 0, double precision = 1E-10) {
-  double sig = 0.2;
+double BSMIVPut(double OptionPrice, double S, double K, double r, double time, double q = 0, double precision = 1E-10, double vol_initial = 0.2) {
+  double sig = vol_initial;
   double sig_old, ln, d1, d2, tmp_p;
   int iter = 0, MAXITER = 1000;
   do {
@@ -52,6 +53,7 @@ double BSMIVPut(double OptionPrice, double S, double K, double r, double time, d
     d2 = d1 - sig * sqrt(time);
     tmp_p = -exp(-q * time) * S * R::pnorm(-d1, 0.0, 1.0, true, false) + K * exp(-r * time) * R::pnorm(-d2, 0.0, 1.0, true, false);
     sig = sig + (OptionPrice - tmp_p) / (S * (1 / (sqrt(2 * M_PI))) * exp(-0.5 * (d1 * d1)) * sqrt(time));
+    iter++;
   } while (fabs(sig - sig_old) > precision and iter < MAXITER);
 
   return sig;
