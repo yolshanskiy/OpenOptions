@@ -26,7 +26,7 @@ double BSMPut(double S, double K, double r, double vol, double time, double q = 
 double BSMIVCall(double OptionPrice, double S, double K, double r, double time, double q = 0, double precision = 1E-10, double vol_initial = 0.2) {
   double sig = vol_initial;
   double sig_old, ln, d1, d2, tmp_p;
-  int iter = 0, MAXITER = 100000;
+  int iter = 0, MAXITER = 1000;
   do {
     sig_old = sig;
     ln = log(S / K);
